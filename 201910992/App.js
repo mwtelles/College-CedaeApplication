@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
+<<<<<<< HEAD
 import { StyleSheet, Text, View, TextInput, Modal, Pressable, Alert } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { styles } from './src/styles/styles';
@@ -8,6 +9,16 @@ import OnCamera from './src/components/Camera/index';
 export default function App() {
 
   const [dataUsuario, setdataUsuario] = useState({});
+=======
+import { StyleSheet, Text, View, TextInput, Modal, Pressable } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
+import { styles } from './src/styles/styles';
+import UseCam from './src/components/Camera/index';
+
+export default function App() {
+
+  const [dataUser, setDataUser] = useState({});
+>>>>>>> main
   const [cidade, setCidade] = useState('');
   const [bairro, setBairro] = useState('');
   const [rua, setRua] = useState('');
@@ -16,9 +27,15 @@ export default function App() {
 
   const [isVisible, setIsVisible] = useState(false);
 
+<<<<<<< HEAD
   function saveInformationForm() {
     setIsVisible(!isVisible);
     setdataUsuario({cidade, 
+=======
+  function saveInfoForm() {
+    setIsVisible(!isVisible);
+    setDataUser({cidade, 
+>>>>>>> main
       bairro, 
       rua, 
       numero, 
@@ -26,9 +43,15 @@ export default function App() {
     });
   }
 
+<<<<<<< HEAD
   function closeModal() {
     setdataUsuario({})
     setCidade('');
+=======
+  function closeModalPhoto() {
+    setDataUser({})
+    setCidade('default');
+>>>>>>> main
     setBairro(''); 
     setRua('');
     setNumero('');
@@ -36,6 +59,7 @@ export default function App() {
     setIsVisible(!isVisible);
   }
 
+<<<<<<< HEAD
   const ContinueAlert = () =>
     Alert.alert('Você deseja continuar?', '', [
       {
@@ -46,6 +70,8 @@ export default function App() {
       { text: 'Continuar', onPress: (saveInformationForm)},
     ]);
 
+=======
+>>>>>>> main
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Informe a Cidade </Text>
@@ -90,6 +116,7 @@ export default function App() {
         onChangeText={setDescricao}
       />
       <StatusBar style="auto" />
+<<<<<<< HEAD
       <Pressable style={btn.button} onPress={ContinueAlert}>
       <Text style={btn.text}>Notificar</Text>
       </Pressable>
@@ -97,6 +124,15 @@ export default function App() {
         <OnCamera 
           dataUsuario={dataUsuario}
           closeModal={closeModal}
+=======
+      <Pressable style={btn.button} onPress={saveInfoForm}>
+      <Text style={btn.text}>Notificar</Text>
+      </Pressable>
+      <Modal transparent={true} visible={isVisible}>
+        <UseCam 
+          dataUser={dataUser}
+          closeModalPhoto={closeModalPhoto}
+>>>>>>> main
         />
       </Modal>
     </View>
